@@ -11,7 +11,7 @@ public class BankApplication {
         boolean run = true;
         int index = 0;
 
-        Account[] account = new Account[5];
+        Account[] account = new Account[100];
         for(int i = 0; i<account.length; i++){
             account[i] = new Account();
         }
@@ -20,7 +20,7 @@ public class BankApplication {
         while (run){
 
             System.out.println("------------------------------------------------");
-            System.out.println("1.계좌생성 | 2. 계좌목록 | 3.예금 | 4.출금 |5. 종료");
+            System.out.println("1.계좌생성 | 2. 계좌목록 | 3.예금 | 4.출금 | 5. 종료");
             System.out.println("------------------------------------------------");
             System.out.print("선택> ");
 
@@ -52,6 +52,7 @@ public class BankApplication {
 
                     System.out.println("결과 : 계좌가 생성되었습니다.");
                     index++;
+                    scanner.nextLine(); // 버퍼에 남아있는 개행 문자 소비
                 }
                 case "2" -> {
                     System.out.println("----------");
@@ -70,10 +71,24 @@ public class BankApplication {
                     System.out.print("계좌번호 : ");
                     String num = scanner.nextLine();
 
-                    System.out.print("예금액 : ");
-                    int deposit = scanner.nextInt();
-                    account[index].setInitialDeposit(account[index].getInitialDeposit() + deposit);
-                    System.out.println(deposit);
+                    int foundIndex = -1;
+                    for (int i = 0; i < index; i++) {
+                        if (account[i].getNumber().equals(num)) {
+                            foundIndex = i;
+                            break;
+                        }
+                    }
+
+                    if(foundIndex == -1){
+                        System.out.println("없는 계좌입니다.");
+                    }
+                    else{
+                        System.out.print("예금액 : ");
+                        int deposit = scanner.nextInt();
+                        account[foundIndex].setInitialDeposit(account[foundIndex].getInitialDeposit() + deposit);
+                    }
+
+                    scanner.nextLine(); // 버퍼에 남아있는 개행 문자 소비
 
 
                 }
@@ -86,11 +101,28 @@ public class BankApplication {
                     System.out.print("계좌번호 : ");
                     String num = scanner.nextLine();
 
-                    System.out.print("출금액 : ");
-                    int withdraw = scanner.nextInt();
-                    account[index].setInitialDeposit(account[index].getInitialDeposit() - withdraw);
-                    index++;
-                    System.out.println("결과 : 출금이 처리되었습니다.");
+                    int foundIndex = -1;
+                    for (int i = 0; i < index; i++) {
+                        if (account[i].getNumber().equals(num)) {
+                            foundIndex = i;
+                            break;
+                        }
+                    }
+
+                    if(foundIndex == -1){
+                        System.out.println("없는 계좌입니다.");
+                    }
+                    else {
+                        System.out.print("출금액 : ");
+                        int withdraw = scanner.nextInt();
+                        if(account[foundIndex].getInitialDeposit() < withdraw){
+                            System.out.println("출금할 잔액이 없습니다.");
+                        }else {
+                            account[foundIndex].setInitialDeposit(account[foundIndex].getInitialDeposit() - withdraw);
+                            System.out.println("결과 : 출금이 처리되었습니다.");
+                        }
+                    }
+                    scanner.nextLine(); // 버퍼에 남아있는 개행 문자 소비
 
                 }
                 case "5" -> run = false;
