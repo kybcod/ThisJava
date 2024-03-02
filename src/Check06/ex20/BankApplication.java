@@ -36,19 +36,16 @@ public class BankApplication {
                     System.out.print("계좌번호 : ");
                     String num = scanner.nextLine();
                     account[index].setNumber(num);
-                    System.out.println(index);
 
 
                     System.out.print("계좌주 : ");
                     String name = scanner.nextLine();
                     account[index].setName(name);
-                    System.out.println(index);
 
 
                     System.out.print("초기입금액 : ");
                     int InitialDeposit = scanner.nextInt();
                     account[index].setInitialDeposit(InitialDeposit);
-                    System.out.println(index);
 
                     System.out.println("결과 : 계좌가 생성되었습니다.");
                     index++;
