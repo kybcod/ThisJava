@@ -6,6 +6,15 @@ import java.util.Scanner;
 import static java.lang.StringTemplate.STR;
 
 public class BankApplication {
+    private static int findAccountIndex(Account[] account, String num, int index) {
+        for (int i = 0; i < index; i++) {
+            if (account[i].getNumber().equals(num)) {
+                return i;
+            }
+        }
+        return -1;
+    }
+
     public static void main(String[] args) {
         Scanner scanner = new Scanner(System.in);
         boolean run = true;
@@ -68,13 +77,7 @@ public class BankApplication {
                     System.out.print("계좌번호 : ");
                     String num = scanner.nextLine();
 
-                    int foundIndex = -1;
-                    for (int i = 0; i < index; i++) {
-                        if (account[i].getNumber().equals(num)) {
-                            foundIndex = i;
-                            break;
-                        }
-                    }
+                    int foundIndex = findAccountIndex(account, num, index);
 
                     if(foundIndex == -1){
                         System.out.println("없는 계좌입니다.");
@@ -98,13 +101,7 @@ public class BankApplication {
                     System.out.print("계좌번호 : ");
                     String num = scanner.nextLine();
 
-                    int foundIndex = -1;
-                    for (int i = 0; i < index; i++) {
-                        if (account[i].getNumber().equals(num)) {
-                            foundIndex = i;
-                            break;
-                        }
-                    }
+                    int foundIndex = findAccountIndex(account, num, index);
 
                     if(foundIndex == -1){
                         System.out.println("없는 계좌입니다.");
