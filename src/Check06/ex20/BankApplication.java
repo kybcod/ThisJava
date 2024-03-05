@@ -34,6 +34,7 @@ public class BankApplication {
             System.out.print("선택> ");
 
             String menu = scanner.nextLine();
+            System.out.println("menu = " + menu);
 
             switch (menu){
                 case "1"->{
