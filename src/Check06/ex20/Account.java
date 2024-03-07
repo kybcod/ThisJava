@@ -5,9 +5,6 @@ public class Account {
     private String name;
     private int initialDeposit;
 
-    int deposit;
-    int withdraw;
-
     public Account(){}
 
     public String getName() {
@@ -28,26 +25,10 @@ public class Account {
 
     public void setName(String name) {
         this.name = name;
-
     }
 
     public void setNumber(String number) {
         this.number = number;
     }
 
-    public int getDeposit() {
-        return deposit;
-    }
-
-    public int getWithdraw() {
-        return withdraw;
-    }
-
-    public void setDeposit(int deposit) {
-        this.deposit = deposit;
-    }
-
-    public void setWithdraw(int withdraw) {
-        this.withdraw = withdraw;
-    }
 }

@@ -5,7 +5,7 @@ public class Singleton {
 
     private Singleton(){
 
-    }
+    }//자동으로 생성되는 생성자를 접근하지 못하도록 private
 
     public  static Singleton getInstance(){
         return singleton;

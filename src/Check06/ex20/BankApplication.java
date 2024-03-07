@@ -34,7 +34,6 @@ public class BankApplication {
             System.out.print("선택> ");
 
             String menu = scanner.nextLine();
-            System.out.println("menu = " + menu);
 
             switch (menu){
                 case "1"->{
@@ -58,6 +57,7 @@ public class BankApplication {
                     account[index].setInitialDeposit(InitialDeposit);
 
                     System.out.println("결과 : 계좌가 생성되었습니다.");
+
                     index++;
                     scanner.nextLine(); // 버퍼에 남아있는 개행 문자 소비
                 }
@@ -124,5 +124,6 @@ public class BankApplication {
             }
         }
         System.out.println("프로그램 종료");
+        scanner.close();
     }
 }
