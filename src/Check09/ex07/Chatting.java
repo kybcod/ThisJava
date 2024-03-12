@@ -7,19 +7,17 @@ public class Chatting {
     }
 
     void startChat(String chatId){
-        String nickName = null;
-        nickName = chatId;
+        String nickName = chatId;
 
-        String finalNickName = nickName;
         Chat chat = new Chat(){
             @Override
-            public void start() {
+            void start() {
                 while (true){
                     String inputData = "안녕하세요";
-//                    String message = "["+nickName+"]"+inputData;
+                    String message = "["+nickName+"]"+inputData;
                     //Variable 'nickName' is accessed from within inner class,
                     // needs to be final or effectively final
-                    String message = "["+ finalNickName +"]"+inputData;
+//                    String message = "["+ nickName +"]"+inputData;
                     sendMessage(message);
                 }
             }
