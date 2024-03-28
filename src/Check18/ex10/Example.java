@@ -19,28 +19,30 @@ public class Example {
 
         if(!file.exists()){
             System.out.println("원본 파일이 존재하지 않습니다.");
-        }
-
-        File copyfile = new File(copyFileName);
-        File parentFile = copyfile.getParentFile();
-        if(!parentFile.exists()){
-            parentFile.mkdirs();
-        }
-
-        try (InputStream is = new FileInputStream(fileName);
-        OutputStream os = new FileOutputStream(copyFileName);
-        BufferedInputStream bis = new BufferedInputStream(is);
-        BufferedOutputStream bos = new BufferedOutputStream(os);){
-
-            byte[] data = new byte[100];
-            int len = 0;
-            while((len = bis.read(data)) != -1){
-                os.write(data, 0, len);
+        }else{
+            File copyfile = new File(copyFileName);
+            File parentFile = copyfile.getParentFile();
+            if(!parentFile.exists()){
+                parentFile.mkdirs();
             }
-            System.out.println("복사가 성공되었습니다.");
-        } catch (IOException e){
-            e.printStackTrace();
+
+            try (InputStream is = new FileInputStream(fileName);
+                 OutputStream os = new FileOutputStream(copyFileName);
+                 BufferedInputStream bis = new BufferedInputStream(is);
+                 BufferedOutputStream bos = new BufferedOutputStream(os);){
+
+                byte[] data = new byte[1024];
+                int len = 0;
+                while((len = bis.read(data)) != -1){
+                    os.write(data, 0, len);
+                }
+                System.out.println("복사가 성공되었습니다.");
+            } catch (IOException e){
+                e.printStackTrace();
+            }
+
         }
+
 
 
 
