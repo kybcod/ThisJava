@@ -1,4 +1,4 @@
-package Check14.ex09;
+package Check16.ex08;
 
 public class Student {
     private String name;

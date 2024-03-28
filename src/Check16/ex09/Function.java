@@ -1,4 +1,4 @@
-package Check14.ex09;
+package Check16.ex09;
 
 @FunctionalInterface
 public  interface Function<T> {

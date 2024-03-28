@@ -1,4 +1,4 @@
-package Check14.ex07;
+package Check16.ex07;
 
 public class Example {
     private static int[] scores = {10,50,3};

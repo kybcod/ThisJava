@@ -1,4 +1,4 @@
-package Check14.ex08;
+package Check16.ex08;
 
 public class Example{
     private static Student[] students = {

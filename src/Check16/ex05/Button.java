@@ -1,4 +1,4 @@
-package Check14.ex05;
+package Check16.ex05;
 
 public class Button {
     @FunctionalInterface

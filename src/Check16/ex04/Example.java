@@ -1,4 +1,4 @@
-package Check14.ex04;
+package Check16.ex04;
 
 public class Example {
     public static void main(String[] args) {

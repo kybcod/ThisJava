@@ -1,4 +1,4 @@
-package Check14.ex06;
+package Check16.ex06;
 
 
 public class Example {
